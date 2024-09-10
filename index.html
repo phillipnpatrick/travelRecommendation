@@ -4,28 +4,37 @@
         <meta charset="UTF-8">
         <title>Travel Pridefully</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
         <link rel="stylesheet" href="./travel.css">
     </head>
     <body>
         <div class="box">
-            <div class="row header">
+            <div class="row header header-container">
                 <nav>
-                    <ul class="nav-left">
-                        <li><a href="./index.html" id="home"><img src="./pride-flag.png" alt="image_description" width="30" height="20"></a></li>
-                        <li><a class="site-name" href="./index.html" id="home">Travel Pridefully</a></li>
-                    </ul>
-                    <ul class="nav-center">
-                        <li><a href="./index.html" id="home">Home </a></li>
-                        <li><a href="./travelAbout.html" id="contact">About Us </a></li>
-                        <li><a href="./travelContact.html" id="contact">Contact Us </a></li>
-                    </ul>
-                    <ul class="nav-right">
-                        <li><input type="text" id="conditionInput" placeholder="Enter a destination or keyword">  </li>
-                        <li><button type="submit" class="button_search_icon"><i class="fa fa-search"></i></button></li>
-                        <li><button id='btnSearch' class="search_button">Search</button></li>
-                        <li><button id='btnClear' class="clear_button">Clear</button></li>
-                    </ul>
+                    <div class="logo">
+                        <ul class="nav-ul">
+                            <li class="nav-li"><a class="nav-a" href="./index.html" id="home"><img src="./pride-flag.png" alt="image_description" width="30" height="20"></a></li>
+                            <li class="nav-li"><a class="nav-a site-name" href="./index.html" id="home">Travel Pridefully</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu">
+                        <ul class="nav-ul">
+                            <li class="nav-li"><a class="nav-a" href="./index.html" id="home">Home</a></li>
+                            <li class="nav-li"><a class="nav-a" href="./about.html" id="contact">About Us</a></li>
+                            <li class="nav-li"><a class="nav-a" href="./contact.html" id="contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="search">
+                        <ul class="nav-ul">
+                            <div style="text-align:left"
+                            <li class="nav-li"><input type="text" id="conditionInput" placeholder="Enter a destination or keyword">  </li>
+                            </div>
+                            <div class="search-buttons">
+                            <li class="nav-li"><button type="submit" class="button_search_icon"><i class="fa fa-search"></i></button></li>
+                            <li class="nav-li"><button id='btnSearch' class="search_button">Search</button></li>
+                            <li class="nav-li"><button id='btnClear' class="clear_button">Clear</button></li>
+                            </div>
+                        </ul>
+                    </div>
                 </nav>
             </div>
             <div class="row content">

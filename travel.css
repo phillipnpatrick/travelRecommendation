@@ -16,9 +16,6 @@ body {
     flex-flow: column;
     height: 100%;
 }
-.box .row {
-    /* border: 1px dotted #0313fc; */
-}
 .box .row.header {
     flex: 0 1 auto;
 }
@@ -29,6 +26,36 @@ body {
     flex: 0 1 40px;
 } 
 
+.header-container {
+    display: flex;
+    width: 100%;
+}
+
+.logo {
+    width: 20%;
+    border-style: dashed;
+    border-width: 1px;
+}
+
+.menu {
+    width: 40%;
+    text-align: center;
+    border-style: dashed;
+    border-width: 1px;
+}
+
+.search {
+    width: 40%;
+    text-align: left;
+    background-color: white;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    border-style: dashed;
+    border-width: 1px;
+}
+
 nav {
     background-color: lightseagreen;
     padding: 20px;
@@ -36,19 +63,19 @@ nav {
     align-items: center;
     justify-content: space-between;
     font-family: 'Montserrat', "Arial Regular", sans-serif;
+    width: 100%;
 }
 
-nav ul {
+.nav-ul {
     list-style-type: none;
-    /* padding: 0; */
 }
 
-nav ul li {
+.nav-li {
     display: inline;
     margin-right: 10px;
 }
 
-nav a {
+.nav-a {
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -56,44 +83,30 @@ nav a {
     margin: 5px;
 }
 
-nav a:hover {
+.nav-a:hover {
     color: black;
 }
 
 .site-name {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: x-small;
-    display: flex;
-    align-items: center;
-    margin-left: -8px;
-}
-
-.nav-left {
-    text-align: left;
-    display: flex;
-    align-items: center;
-}
-
-.nav-center {
-    text-align: center;
-}
-
-.nav-right {
-    text-align: right;
-    background-color: white;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
+    /* display: flex; */
+    /* align-items: center; */
+    margin-left: -16px;
 }
 
 nav input[type="text"] {
     border: none;
+    /* width: 55%; */
     width: 200px;
     padding: 5px;
     border-radius: 20px;
     border-color: white;
     outline: none;
+}
+
+.search-buttons {
+    text-align: right;
 }
 
 .fa-search {
@@ -114,7 +127,7 @@ nav input[type="text"] {
 body {
     font-family: Arial, sans-serif;
     /* background-image: url('./rmnp.jpg'); */
-    background-image: url('https://t3.ftcdn.net/jpg/06/36/88/24/360_F_636882423_oCsAvtuzlXCT6e0q1lwS3ca4FHncanaA.jpg'); */
+    background-image: url('https://t3.ftcdn.net/jpg/06/36/88/24/360_F_636882423_oCsAvtuzlXCT6e0q1lwS3ca4FHncanaA.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -134,7 +147,8 @@ label {
 }
 
 button {
-    padding: 7px 15px;
+    padding: 7px;
+    /* padding: 7px 15px; */
     background-color: lightseagreen;
     color: white;
     border: none;
@@ -233,4 +247,5 @@ h2 {
             red);
     -webkit-background-clip: text;
     color: transparent;
+    background-clip: text;
 }
