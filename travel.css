@@ -175,7 +175,7 @@ h2 {
 
 .flex-child1 {
     width: 10%;
-    border-right: 2px solid yellow;
+    border-right: 2px solid gray;
     display:flex;
     flex-direction: column;
     gap: 10px;
@@ -184,7 +184,6 @@ h2 {
 
 .flex-child2 {
     width: 40%;
-    /* border: 2px solid yellow; */
     padding-left: 25px;
 }
 
