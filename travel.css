@@ -33,27 +33,26 @@ body {
 
 .logo {
     width: 20%;
-    border-style: dashed;
-    border-width: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.site-name {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 11px;
+    margin-left: -16px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.site-name:hover {
+    color: black;
 }
 
 .menu {
     width: 40%;
     text-align: center;
-    border-style: dashed;
-    border-width: 1px;
-}
-
-.search {
-    width: 40%;
-    text-align: left;
-    background-color: white;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    border-style: dashed;
-    border-width: 1px;
 }
 
 nav {
@@ -87,18 +86,28 @@ nav {
     color: black;
 }
 
-.site-name {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: x-small;
-    /* display: flex; */
-    /* align-items: center; */
-    margin-left: -16px;
+.search {
+    display: flex;
+    height: 100%;
+    width: 40%;
+    text-align: left;
+    background-color: white;
+    height: 35px;
+    align-items: center;
+    border-radius: 20px;
+    border-style: dashed;
+    border-width: 1px;
 }
 
-nav input[type="text"] {
+.search-input {   
+    width: 70%;
+}
+
+.search input[type="text"] {
     border: none;
-    /* width: 55%; */
-    width: 200px;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 3px;
     padding: 5px;
     border-radius: 20px;
     border-color: white;
@@ -106,7 +115,8 @@ nav input[type="text"] {
 }
 
 .search-buttons {
-    text-align: right;
+    width: 40%;
+    margin-top: 10px;
 }
 
 .fa-search {
