@@ -6,31 +6,33 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="./travel.css">
     </head>
-    <body>
+    <body onload="displayHome()">
         <div class="box">
             <div class="row header header-container">
                 <nav>
                     <div class="logo">
                         <ul class="nav-ul">
-                            <li class="nav-li"><a class="nav-a" href="./index.html" id="home"><img src="./pride-flag.png" alt="image_description" width="30" height="20"></a></li>
-                            <li class="nav-li"><a class="site-name" href="./index.html" id="home">Travel Pridefully</a></li>
+                            <li class="nav-li"><button class="nav-btn-logo" onclick="displayHome()"><img src="./pride-flag.png" alt="image_description" width="30" height="20"></a></li>
+                            <li class="nav-li"><button class="nav-btn-name" onclick="displayHome()">Travel Pridefully</button></li>
                         </ul>
                     </div>
                     <div class="menu">
                         <ul class="nav-ul">
-                            <li class="nav-li"><a class="nav-a" href="./index.html" id="home">Home</a></li>
-                            <li class="nav-li"><a class="nav-a" href="./about.html" id="contact">About Us</a></li>
-                            <li class="nav-li"><a class="nav-a" href="./contact.html" id="contact">Contact Us</a></li>
+                            <li class="nav-li"><button class="nav-btn" id="btnHome" onclick="displayHome()">Home</button></li>
+                            <li class="nav-li"><button class="nav-btn" id="btnAbout" onclick="displayAboutUs()">About Us</button></li>
+                            <li class="nav-li"><button class="nav-btn" id="btnContact" onclick="displayContactUs()">Contact Us</button></li>
                         </ul>
                     </div>
-                    <div class="search">
-                        <div class="search-input">
-                            <input type="text" id="conditionInput" placeholder="Enter a destination or keyword">
-                        </div>
-                        <div class="search-buttons">
-                            <button type="submit" class="button_search_icon"><i class="fa fa-search"></i></button>
-                            <button id='btnSearch' class="search_button">Search</button>
-                            <button id='btnClear' class="clear_button">Clear</button>
+                    <div id="searchBoxContainer" class="search-container">
+                        <div id="searchBox" class="search">
+                            <div class="search-input">
+                                <input type="text" id="conditionInput" placeholder="Enter a destination or keyword">
+                            </div>
+                            <div class="search-buttons">
+                                <button type="submit" class="button_search_icon"><i class="fa fa-search"></i></button>
+                                <button id='btnSearch' class="search_button">Search</button>
+                                <button id='btnClear' class="clear_button">Clear</button>
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -44,11 +46,17 @@
                         <i class="social fa fa-youtube"></i>
                     </div>
                     <div id="mainDiv" class="flex-child2" >
-                        <div id="mainContent" class="home-content">
+                        <div id="divHome">
                             <h1 class="h1-home">Travel the World</h1>
                             <h2 class="h2-home multicolor-text">Show Your Pride</h2>
                             <p class="p-content">Explore unfamiliar territories, embracing diverse culures and landscapes, while pursuing the desired destinatio that captivates the heart and ignites a sense of wonder.</p>
                             <button class="btn-book" id="btnBook">BOOK NOW</button>
+                        </div>
+                        <div id="divAbout">
+                            <h1>About Us</h1>
+                        </div>
+                        <div id="divContact">
+                            <h1>Contact Us</h1>
                         </div>
                     </div>
                 </div>
@@ -56,6 +64,7 @@
             <div class="row footer">
                 <p></p>
             </div>
-        </div>        
+        </div>     
+        <script src="./travel.js"></script>   
     </body>
 </html>

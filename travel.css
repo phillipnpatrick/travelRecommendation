@@ -37,13 +37,24 @@ body {
     align-items: center;
 }
 
-.site-name {
+.nav-btn-logo {
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav-btn-name {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 11px;
     margin-left: -16px;
     text-decoration: none;
     color: white;
     font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav-btn-name:hover {
+    color: black;
 }
 
 .site-name:hover {
@@ -71,7 +82,6 @@ nav {
 
 .nav-li {
     display: inline;
-    margin-right: 10px;
 }
 
 .nav-a {
@@ -86,17 +96,32 @@ nav {
     color: black;
 }
 
+.nav-btn {
+    color: white;
+    font-weight: bold;
+    font-size: small;
+    margin: 5px;    
+}
+
+.nav-btn:hover {
+    color: black;
+}
+
+.search-container {
+    width: 40%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
 .search {
     display: flex;
-    height: 100%;
-    width: 40%;
+    width: 100%;
     text-align: left;
     background-color: white;
     height: 35px;
     align-items: center;
     border-radius: 20px;
-    border-style: dashed;
-    border-width: 1px;
 }
 
 .search-input {   
@@ -115,7 +140,7 @@ nav {
 }
 
 .search-buttons {
-    width: 40%;
+    width: 30%;
     margin-top: 10px;
 }
 
@@ -158,16 +183,11 @@ label {
 
 button {
     padding: 7px;
-    /* padding: 7px 15px; */
     background-color: lightseagreen;
     color: white;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
 }
 
 /* Basic CSS for the report section */
@@ -209,6 +229,7 @@ h2 {
 .flex-child2 {
     width: 40%;
     padding-left: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .social {
@@ -217,11 +238,6 @@ h2 {
 
 .social:hover {
     cursor: pointer;
-}
-
-.home-content {
-    margin-top: 15%;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .h1-home {
