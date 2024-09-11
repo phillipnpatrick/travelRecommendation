@@ -37,8 +37,8 @@ function showAboutUs(show) {
         document.getElementById("btnAbout").classList.add("active-page");
         document.getElementById("divAbout").style.display = "block";
     } else {
-        document.getElementById("divAbout").style.display = "none";
-        document.getElementById("divAbout").classList.remove("active-page");
+        document.getElementById("btnAbout").classList.remove("active-page");
+        document.getElementById("divAbout").style.display = "none";        
     }
 }
 
@@ -47,8 +47,8 @@ function showContactUs(show) {
         document.getElementById("btnContact").classList.add("active-page");
         document.getElementById("divContact").style.display = "block";
     } else {
+        document.getElementById("btnContact").classList.remove("active-page");
         document.getElementById("divContact").style.display = "none";
-        document.getElementById("divContact").classList.remove("active-page");
     }
 }
 
