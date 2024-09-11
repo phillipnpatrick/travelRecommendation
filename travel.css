@@ -190,11 +190,6 @@ button {
     cursor: pointer;
 }
 
-/* Basic CSS for the report section */
-h2 {
-    margin-top: 30px;
-}
-
 .search_button {
     background-color: seagreen;
 }
@@ -238,6 +233,14 @@ h2 {
 
 .social:hover {
     cursor: pointer;
+}
+
+.fa-twitter, .fa-facebook, .fa-instagram, .fa-youtube {
+    color: blue;
+}
+
+.fa-twitter:hover, .fa-facebook:hover, .fa-instagram:hover, .fa-youtube:hover {
+    color: red;
 }
 
 .h1-home {
@@ -296,4 +299,46 @@ h2 {
 
 .about-us p {
     margin-bottom: 15px;
+}
+
+.employee-container {
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.employee-intro {
+    width: 125px;
+}
+
+.employee-intro h2 {
+    margin: 0;
+}
+
+.employee-cards {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.employee-card-container {
+    display: flex;
+    width: 200px;
+    height: 100%;
+    background-color: rgba(96,96,96,0.5);
+    border-radius: 20px;
+    margin-right: 50px;
+}
+
+.employee-avatar {
+    width: 50px;
+}
+
+.employee-card {
+    width: 150px;
+}
+
+.employee-card button {
+    width: 125px;
 }
