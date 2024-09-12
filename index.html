@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Travel Pridefully</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="./travel.css">
     </head>
     <body onload="displayHome()">
@@ -69,6 +70,16 @@
                         </div>
                         <div id="divContact">
                             <h1>Contact Us</h1>
+                            <form class="w3-container">
+                                <label for="name">Name</label>
+                                <input class="w3-input w3-border w3-round w3-hover-pale-blue" type="text" id="name" name="name" placeholder="Enter your name">
+                                <label for="email">Email</label>
+                                <input class="w3-input w3-border w3-round w3-hover-pale-blue" type="email" id="email" name="email" placeholder="Enter your email">
+                                <label for="message">Message</label>
+                                <textarea class="w3-input w3-border w3-round w3-hover-pale-blue" id="message" name="message" placeholder="Enter your message"></textarea>
+                                <button class="w3-btn w3-blue" onclick="sendEmail();">Submit</button>
+                            </form>
+                            <div id="confirmation"></div>
                         </div>
                     </div>
                 </div>
