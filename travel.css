@@ -342,3 +342,23 @@ button {
 .employee-card button {
     width: 125px;
 }
+
+.contact-form {
+    background-color: rgba(96,96,96,0.5);
+    width: 400px;
+    padding: 5px;
+}
+
+.w3-container label {
+    width: 95%;
+    color: black;
+    padding-top: 10px;
+}
+
+.w3-input {
+    padding: 4px;
+}
+
+.w3-container textarea {
+    margin-bottom: 20px;
+}
