@@ -1,0 +1,31 @@
+{
+    "employees" : [
+        {
+            "id": 100001,
+            "firstName": "Harry",
+            "lastName": "Potter",
+            "photo": "",
+            "shortBio": "Harry is responsible for ...",
+            "bio": "Harry is responsible for strategy, operation, and financial goals.",
+            "title": "CEO"
+        },
+        {
+            "id": 100002,
+            "firstName": "Ron",
+            "lastName": "Weasley",
+            "photo": "",
+            "shortBio": "Ron is responsible for guiding, monitoring and leading our travel team.",
+            "bio": "",
+            "title": "Team Leader"
+        },
+        {
+            "id": 100003,
+            "firstName": "Hermione",
+            "lastName": "Granger",
+            "photo": "",
+            "shortBio": "Hermione is responsible for guiding and supervising our web projects.",
+            "bio": "",
+            "title": "Project Leader"
+        }
+    ]
+}
