@@ -31,12 +31,6 @@ body {
     width: 100%;
 }
 
-.logo {
-    width: 20%;
-    display: flex;
-    align-items: center;
-}
-
 .nav-btn-logo {
     margin: 0px;
     padding: 0px;
@@ -61,14 +55,9 @@ body {
     color: black;
 }
 
-.menu {
-    width: 40%;
-    text-align: center;
-}
-
 nav {
     background-color: lightseagreen;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -107,41 +96,48 @@ nav {
     color: black;
 }
 
+.logo {
+    width: 130px;
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    width: 235px;
+    text-align: center;
+}
+
 .search-container {
-    width: 40%;
-    height: 100%;
+    width: 375px;
+    height: 50px;
     padding: 0px;
     margin: 0px;
 }
 
 .search {
-    display: flex;
+    display: -webkit-inline-box;
     width: 100%;
-    text-align: left;
     background-color: white;
-    height: 35px;
-    align-items: center;
+    height: 90%;
     border-radius: 20px;
 }
 
 .search-input {   
-    width: 70%;
+    width: 60%;
 }
 
 .search input[type="text"] {
     border: none;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 6.5px;
     margin-left: 3px;
     padding: 5px;
     border-radius: 20px;
-    border-color: white;
-    outline: none;
 }
 
 .search-buttons {
-    width: 30%;
-    margin-top: 10px;
+    width: 40%;
+    margin-top: 5px;
 }
 
 .fa-search {
@@ -161,7 +157,6 @@ nav {
 /* Basic CSS for the form elements */
 body {
     font-family: Arial, sans-serif;
-    /* background-image: url('./rmnp.jpg'); */
     background-image: url('https://t3.ftcdn.net/jpg/06/36/88/24/360_F_636882423_oCsAvtuzlXCT6e0q1lwS3ca4FHncanaA.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -170,10 +165,6 @@ body {
 
 h1 {
     margin-bottom: 20px;
-}
-
-div {
-    margin-bottom: 10px;
 }
 
 label {
@@ -192,6 +183,7 @@ button {
 
 .search_button {
     background-color: seagreen;
+    width: 60px;
 }
 
 .search_button:hover {
@@ -199,6 +191,7 @@ button {
 }
 
 .clear_button {
+    width: 60px;
     background-color: seagreen;
 }
 
@@ -329,10 +322,16 @@ button {
     background-color: rgba(96,96,96,0.5);
     border-radius: 20px;
     margin-right: 50px;
+    padding-bottom: 5px;
 }
 
 .employee-avatar {
     width: 50px;
+}
+
+.employee-avatar img {
+    padding: 2px;
+    border-radius: 20px;
 }
 
 .employee-card {

@@ -41,19 +41,19 @@
             <div class="row content">
                 <div class="flex-container">
                     <div id="leftDiv" class="flex-child1">
-                        <a href="https://x.com/"><i class="social fa fa-twitter"></i></a>
-                        <a href="https://facebook.com/"><i class="social fa fa-facebook"></i></a>
-                        <a href="https://instagram.com/"><i class="social fa fa-instagram fa_custom"></i></a>
-                        <a href="https://youtube.com/"><i class="social fa fa-youtube"></i></a>
+                        <a href="https://x.com/" target="_blank"><i class="social fa fa-twitter"></i></a>
+                        <a href="https://facebook.com/" target="_blank"><i class="social fa fa-facebook"></i></a>
+                        <a href="https://instagram.com/" target="_blank"><i class="social fa fa-instagram fa_custom"></i></a>
+                        <a href="https://youtube.com/" target="_blank"><i class="social fa fa-youtube"></i></a>
                     </div>
                     <div id="mainDiv" class="flex-child2" >
                         <div id="divHome" class="home-content">
                             <h1 class="h1-home">Travel the World</h1>
                             <h2 class="h2-home multicolor-text">Show Your Pride</h2>
                             <p class="p-content">Explore unfamiliar territories, embracing diverse cultures and landscapes, while pursuing the desired destination that captivates the heart and ignites a sense of wonder.</p>
-                            <button class="btn-book" id="btnBook">BOOK NOW</button>
+                            <button class="btn-book" id="btnBook" onclick="alert('Thank you for your interest.');">BOOK NOW</button>
                         </div>
-                        <div id="divAbout">
+                        <div id="divAbout" style="display:none">
                             <h1>ABOUT US</h1>
                             <div class="about-us">
                                 <p>Welcome to Travel Pridefully! We are a team of proud members and allies of the LGBTQ+ community and are passionate individuals dedicated to providing excellent services to our customers. Our mission is to <strong>provide the best experience</strong> for people traveling to different destinations around the world.</p>
@@ -68,9 +68,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="divContact">
+                        <div id="divContact" style="display:none">
                             <h1>Contact Us</h1>
-                            <form class="w3-container">
+                            <div class="w3-container">
                                 <label for="name">Name</label>
                                 <input class="w3-input w3-border w3-round w3-hover-pale-blue" type="text" id="name" name="name" placeholder="Enter your name">
                                 <label for="email">Email</label>
@@ -78,7 +78,7 @@
                                 <label for="message">Message</label>
                                 <textarea class="w3-input w3-border w3-round w3-hover-pale-blue" id="message" name="message" placeholder="Enter your message"></textarea>
                                 <button class="w3-btn w3-blue" onclick="sendEmail();">Submit</button>
-                            </form>
+                            </div>
                             <div id="confirmation"></div>
                         </div>
                     </div>
@@ -87,7 +87,9 @@
             <div class="row footer">
                 <p></p>
             </div>
-        </div>     
+        </div>
+        <script src="./employees.js"></script>
+        <script src="./travelAPI.js"></script>
         <script src="./travel.js"></script>   
     </body>
 </html>
