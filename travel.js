@@ -1,9 +1,9 @@
 function displayHome() {
     showSearchBox(true);
 
+    showHome(true);
     showAboutUs(false);
     showContactUs(false);
-    showHome(true);
 }
 
 function displayAboutUs() {
@@ -48,6 +48,7 @@ function showContactUs(show) {
     if (show) {
         document.getElementById("btnContact").classList.add("active-page");
         document.getElementById("divContact").style.display = "block";
+        document.getElementById("confirmation").innerHTML = "";
     } else {
         document.getElementById("btnContact").classList.remove("active-page");
         document.getElementById("divContact").style.display = "none";
@@ -91,4 +92,8 @@ function getEmployees() {
                 console.error("Error: ", error);
             });
     }
+}
+
+function sendEmail(event) {
+    alert("Thank you for contacting us. We will respond at our earliest convenience.");
 }
