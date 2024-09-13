@@ -3,14 +3,7 @@ const INDEX_TEMPLES  = "temples";
 const INDEX_BEACHES  = "beaches";
 
 function search() {
-    const searchBar = document.getElementById("keywords");
-    alert("searchBar.value = " + searchBar.value);
-    const keywords = searchBar.value.toLowerCase();
-    alert("keywords = " + keywords);
-
-    destinationType = getKeyword(keywords);
-
-    displayResults(destinationType);
+    displayResults(document.getElementById("keywords").value.toLowerCase());
 }
 
 function getKeyword(searchInput) {
@@ -19,7 +12,7 @@ function getKeyword(searchInput) {
 
     searchKeys.forEach(keyword => {
         if (searchInput.indexOf(keyword) >= 0){
-            if (searchInput.indexOf("country") >= 0) {
+            if (searchInput.indexOf("country") >= 0 || searchInput.indexOf("countries") >= 0) {
                 destinationType = INDEX_COUNTRIES;
             } else if (searchInput.indexOf("temple") >= 0) {
                 destinationType = INDEX_TEMPLES;
@@ -39,36 +32,76 @@ function getDestinations(destinationType) {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                if (destinationType === INDEX_BEACHES) {
-                    return data.beaches;
-                } else if (destinationType === INDEX_COUNTRIES) {
-                    return data.countries;
-                } else if (destinationType === INDEX_TEMPLES) {
-                    return data.temples;
-                }
+                return getJSONarray(data, destinationType);
             })
             .catch(error => {
                 console.error("Error: ", error);
             });
     } else {
-        if (destinationType === INDEX_BEACHES) {
-            return beaches[0].beaches;
-        } else if (destinationType === INDEX_COUNTRIES) {
-            return countries[0].countries;
-        } else if (destinationType === INDEX_TEMPLES) {
-            return temples[0].countries;
-        }
+       return getArray(destinationType);
     }
 
     return null;
 }
 
-function displayResults(destinationType) {
-    const destinations = getDestinations(destinationType);
-    document.getElementById("divHome").style.display = "none";
+function getJSONarray(data, destinationType) {
+    if (destinationType === INDEX_BEACHES) {
+        return data.beaches;
+    } else if (destinationType === INDEX_COUNTRIES) {
+        return data.countries;
+    } else if (destinationType === INDEX_TEMPLES) {
+        return data.temples;
+    }
+}
 
+function getArray(destinationType) {
+    if (destinationType === INDEX_BEACHES) {
+        return beaches[0].beaches;
+    } else if (destinationType === INDEX_COUNTRIES) {
+        return countries[0].countries;
+    } else if (destinationType === INDEX_TEMPLES) {
+        return temples[0].temples;
+    }
+}
+
+function displayResults(keywords) {
+    debugger;
+    const destinationType = getKeyword(keywords);
     const results = document.getElementById("divResults");
-    results.innerText = JSON.stringify(destinations);
+    let html = "<p>No results found that match your query.</p>";
+
+    if (destinationType.length > 0) {
+        const destinations = getDestinations(destinationType);
+
+        if (destinationType === INDEX_COUNTRIES) {
+            const index = Math.floor(Math.random() * destinations.length);
+            html = getDestinationHTML(destinations[index].cities);
+        } else {
+            html = getDestinationHTML(destinations);
+        }
+    }    
+
+    document.getElementById("divHome").style.display = "none";
+    results.innerHTML = html;
+}
+
+function getDestinationHTML(destinations) {
+    let html = "";
+    
+    destinations.forEach((destination) => {
+        html += `<div class="destination-container">`;
+        html += `<div class="destination-photo">`;
+        html += `<img src="${destination.imageUrl}" alt="Destination Photo" width="200" height="200"></img>`;
+        html += `</div>`;
+        html += `<div class="destination-card">`;
+        html += `<span><strong>${destination.name}</strong></span>`;
+        html += `<p>${destination.description}</p>`;
+        html += `<button onclick="alert('Enjoy your trip to ${destination.name}!');">Visit</button>`;
+        html += `</div>`;
+        html += `</div>`;
+    });
+
+    return html;
 }
 
 function clearSearch() {
