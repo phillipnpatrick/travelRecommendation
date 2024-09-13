@@ -210,23 +210,7 @@ function showSearchBox(show) {
 function getEmployees() {
     const employeeCard = document.getElementById("employeeCards");
 
-    if (employeeCard.innerText === ""){
-        let url = window.location.href;
-        employeeCard.innerHTML = "";
-    
-        if (url.indexOf("github.io") > 0){
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    employeeCard.innerHTML = getEmployeeCards(data.employees);
-                })
-                .catch(error => {
-                    console.error("Error: ", error);
-                });
-        } else {
-            employeeCard.innerHTML = getEmployeeCards(employees[0].employees);
-        }
-    }
+    employeeCard.innerHTML = getEmployeeCards(employees[0].employees);
 }
 
 function getEmployeeCards(employees) {
