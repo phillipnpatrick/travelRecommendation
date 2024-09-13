@@ -44,8 +44,6 @@ function getKeyword(searchInput) {
 function getDestinations(destinationType) {
     let url = window.location.href;
 
-    debugger;
-
     if (url.indexOf("github.io") > 0){
         console.log(`url.lastIndexOf("/") = ` + url.lastIndexOf("/"));
         console.log("url.length = " + url.length);
@@ -58,6 +56,7 @@ function getDestinations(destinationType) {
         console.log("Fetching JSON data from " + url);
         fetch(url)
             .then(response => { 
+                console.log(response);
                 if (!response.ok) {
                     throw new Error("Network response was not ok ... " + response);
                 }
