@@ -3,10 +3,18 @@ const INDEX_TEMPLES  = "temples";
 const INDEX_BEACHES  = "beaches";
 
 document.addEventListener('keyup', function(event) {
+    const activePages = document.getElementsByClassName("active-page");
+
+    if (activePages && activePages[0]){
+        const activePage = activePages[0].id;
+
+        if (activePage === "btnContact") {
+            handleContactUs();
+        }
+    }
+
     if (document.getElementById("keywords").value === "") {
-        document.getElementById("btnSearchIcon").disabled = true;
-        document.getElementById("btnSearch").disabled = true;
-        document.getElementById("btnClear").disabled = true;
+        clearSearch();
     } else {
         document.getElementById("btnSearchIcon").disabled = false;
         document.getElementById("btnSearch").disabled = false;
@@ -19,7 +27,7 @@ document.addEventListener('keyup', function(event) {
 });
 
 function search() {
-    displayResults(document.getElementById("keywords").value.toLowerCase());
+    getDestinations(getKeyword(document.getElementById("keywords").value.toLowerCase()));
 }
 
 function getKeyword(searchInput) {
@@ -44,6 +52,8 @@ function getKeyword(searchInput) {
 function getDestinations(destinationType) {
     let url = window.location.href;
 
+    // url = "https://phillipnpatrick.github.io/travelRecommendation/";
+
     if (url.indexOf("github.io") > 0){
         console.log(`url.lastIndexOf("/") = ` + url.lastIndexOf("/"));
         console.log("url.length = " + url.length);
@@ -60,24 +70,25 @@ function getDestinations(destinationType) {
                 if (!response.ok) {
                     throw new Error("Network response was not ok ... " + response);
                 }
+                return response.json();
             })
             .then(data => {
+                console.log("Retrieved data...");
                 console.log(data);
-                return getJSONarray(data, destinationType);
+                destinations =  getJSONarray(data, destinationType);
+
+                displayResults(destinationType, destinations);
             })
             .catch(error => {
                 console.error("Error: ", error);
             });
     } else {
-       return getArray(destinationType);
+        destinations = getArray(destinationType);
+        displayResults(destinationType, destinations);
     }
-
-    return null;
 }
 
 function getJSONarray(data, destinationType) {
-    console.log("getJSONarray: destinationType = " + destinationType);
-    console.log(data);
     if (destinationType === INDEX_BEACHES) {
         return data.beaches;
     } else if (destinationType === INDEX_COUNTRIES) {
@@ -97,14 +108,11 @@ function getArray(destinationType) {
     }
 }
 
-function displayResults(keywords) {
-    const destinationType = getKeyword(keywords);
+function displayResults(destinationType, destinations) {
     const results = document.getElementById("divResults");
     let html = "";
 
     if (destinationType.length > 0) {
-        const destinations = getDestinations(destinationType);
-
         if (destinationType === INDEX_COUNTRIES) {
             const index = Math.floor(Math.random() * destinations.length);
             html = getDestinationHTML(destinations[index].cities);
@@ -119,28 +127,24 @@ function displayResults(keywords) {
         html += `</div>`;
     }
     results.innerHTML = html;
-    document.getElementById("divResults").style.display = "block";
+    results.style.display = "block";
 }
 
 function getDestinationHTML(destinations) {
     let html = "";
-
-    html = JSON.stringify(destinations);
-
-    console.log(html);
     
-    // destinations.forEach((destination) => {
-    //     html += `<div class="w3-container destination-container">`;
-    //     html += `<div class="destination-photo">`;
-    //     html += `<img src="${destination.imageUrl}" alt="Destination Photo"></img>`;
-    //     html += `</div>`;
-    //     html += `<div class="destination-card">`;
-    //     html += `<span><strong>${destination.name}</strong></span>`;
-    //     html += `<p>${destination.description}</p>`;
-    //     html += `<button onclick="alert('Enjoy your trip to ${destination.name}!');">Visit</button>`;
-    //     html += `</div>`;
-    //     html += `</div>`;
-    // });
+    destinations.forEach((destination) => {
+        html += `<div class="w3-container destination-container">`;
+        html += `<div class="destination-photo">`;
+        html += `<img src="${destination.imageUrl}" alt="Destination Photo"></img>`;
+        html += `</div>`;
+        html += `<div class="destination-card">`;
+        html += `<span><strong>${destination.name}</strong></span>`;
+        html += `<p>${destination.description}</p>`;
+        html += `<button onclick="alert('Enjoy your trip to ${destination.name}!');">Visit</button>`;
+        html += `</div>`;
+        html += `</div>`;
+    });
 
     return html;
 }
@@ -148,6 +152,9 @@ function getDestinationHTML(destinations) {
 function clearSearch() {
     document.getElementById("keywords").value = "";
     document.getElementById("divResults").style.display = "none";
+    document.getElementById("btnSearchIcon").disabled = true;
+    document.getElementById("btnSearch").disabled = true;
+    document.getElementById("btnClear").disabled = true;
 }
 
 function displayHome() {
@@ -182,6 +189,7 @@ function showHome(show){
         document.getElementById("btnHome").classList.remove("active-page");
         document.getElementById("divHomeContainer").style.display = "none";
     }
+    clearSearch();
 }
 
 function showAboutUs(show) {
@@ -205,6 +213,8 @@ function showContactUs(show) {
         document.getElementById("btnContact").classList.remove("active-page");
         document.getElementById("divContact").style.display = "none";
     }
+
+    resetContactUs();
 }
 
 function showSearchBox(show) {
@@ -240,6 +250,28 @@ function getEmployeeCards(employees) {
     return html;
 }
 
+function resetContactUs() {
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+    document.getElementById("btnSendEmail").disabled = true;
+}
+
 function sendEmail(event) {
-    alert("Thank you for contacting us. We will respond at our earliest convenience.");
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    alert(`${name}, thank you for contacting us. We will respond to ${email} at our earliest convenience.`);
+
+    resetContactUs();
+}
+
+function handleContactUs() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    if ((name != "") && (email != "") && (message != "")) {
+        document.getElementById("btnSendEmail").disabled = false;
+    }
 }
