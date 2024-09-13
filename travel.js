@@ -2,6 +2,22 @@ const INDEX_COUNTRIES = "countries";
 const INDEX_TEMPLES  = "temples";
 const INDEX_BEACHES  = "beaches";
 
+document.addEventListener('keyup', function(event) {
+    if (document.getElementById("keywords").value === "") {
+        document.getElementById("btnSearchIcon").disabled = true;
+        document.getElementById("btnSearch").disabled = true;
+        document.getElementById("btnClear").disabled = true;
+    } else {
+        document.getElementById("btnSearchIcon").disabled = false;
+        document.getElementById("btnSearch").disabled = false;
+        document.getElementById("btnClear").disabled = false;
+
+        if (event.key === 'Enter') {
+            search();
+        }
+    }
+});
+
 function search() {
     displayResults(document.getElementById("keywords").value.toLowerCase());
 }
@@ -29,6 +45,13 @@ function getDestinations(destinationType) {
     let url = window.location.href;
 
     if (url.indexOf("github.io") > 0){
+        if (url.lastIndexOf("/") === url.length - 1) {
+            console.log("Original url: " + url);
+            url += "/";
+            console.log("Add slash to end of url: " + url);
+        }
+        url += "travel_rec_api.json";
+        console.log("Fetching JSON data from " + url);
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -65,10 +88,9 @@ function getArray(destinationType) {
 }
 
 function displayResults(keywords) {
-    debugger;
     const destinationType = getKeyword(keywords);
     const results = document.getElementById("divResults");
-    let html = "<p>No results found that match your query.</p>";
+    let html = "";
 
     if (destinationType.length > 0) {
         const destinations = getDestinations(destinationType);
@@ -79,19 +101,24 @@ function displayResults(keywords) {
         } else {
             html = getDestinationHTML(destinations);
         }
-    }    
-
-    document.getElementById("divHome").style.display = "none";
+    } else {
+        const icon = "https://freesvg.org/img/Arnoud999-Right-or-wrong-3.png";
+        html = `<div class="no-results">`;
+        html += `<img src="${icon}" alt="Sad face"></img>`;
+        html += `<p>No results found that match your query.</p>`;
+        html += `</div>`;
+    }
     results.innerHTML = html;
+    document.getElementById("divResults").style.display = "block";
 }
 
 function getDestinationHTML(destinations) {
     let html = "";
     
     destinations.forEach((destination) => {
-        html += `<div class="destination-container">`;
+        html += `<div class="w3-container destination-container">`;
         html += `<div class="destination-photo">`;
-        html += `<img src="${destination.imageUrl}" alt="Destination Photo" width="200" height="200"></img>`;
+        html += `<img src="${destination.imageUrl}" alt="Destination Photo"></img>`;
         html += `</div>`;
         html += `<div class="destination-card">`;
         html += `<span><strong>${destination.name}</strong></span>`;
@@ -105,8 +132,8 @@ function getDestinationHTML(destinations) {
 }
 
 function clearSearch() {
-    const searchBar = document.getElementById("keywords");
-    searchBar.value = "";
+    document.getElementById("keywords").value = "";
+    document.getElementById("divResults").style.display = "none";
 }
 
 function displayHome() {
@@ -136,10 +163,10 @@ function displayContactUs() {
 function showHome(show){
     if (show) {
         document.getElementById("btnHome").classList.add("active-page");
-        document.getElementById("divHome").style.display = "block";
+        document.getElementById("divHomeContainer").style.display = "block";
     } else {
         document.getElementById("btnHome").classList.remove("active-page");
-        document.getElementById("divHome").style.display = "none";
+        document.getElementById("divHomeContainer").style.display = "none";
     }
 }
 

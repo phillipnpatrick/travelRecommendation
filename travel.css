@@ -6,6 +6,14 @@
     box-sizing: border-box;
 }
 
+button:disabled, button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
 html,
 body {
     height: 100%;
@@ -34,6 +42,10 @@ body {
 .nav-btn-logo {
     margin: 0px;
     padding: 0px;
+}
+.nav-btn-logo img {
+    width: 40px;
+    height: 30px;
 }
 
 .nav-btn-name {
@@ -97,7 +109,7 @@ nav {
 }
 
 .logo {
-    width: 130px;
+    width: 150px;
     display: flex;
     align-items: center;
 }
@@ -145,13 +157,20 @@ nav {
     color: lightseagreen;
 }
 
-.button_search_icon {
+.button-search-icon {
     padding: 0px;
     background-color: white;
     cursor: pointer;
 }
 
-.button_search_icon:hover {
+.button-search-icon:disabled {
+    border: 0px;
+    background-color: white;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.button-search-icon:hover {
     background-color: white;    
 }
 
@@ -182,21 +201,21 @@ button {
     cursor: pointer;
 }
 
-.search_button {
+.search-button {
     background-color: seagreen;
     width: 60px;
 }
 
-.search_button:hover {
+.search-button:hover {
     background-color: darkseagreen;
 }
 
-.clear_button {
+.clear-button {
     width: 60px;
     background-color: seagreen;
 }
 
-.clear_button:hover {
+.clear-button:hover {
     background-color: darkseagreen;
 }
 
@@ -274,11 +293,23 @@ button {
 }
 
 .active-page {
-    color: black;
+    color: darkblue;
+}
+
+.home-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 .home-content {
-    width: 40%;
+    float: left;
+    width: 400px;
+}
+
+.search-results {
+    float: right;
+    margin: 5px;
 }
 
 .about-us {
@@ -361,4 +392,50 @@ button {
 
 .w3-container textarea {
     margin-bottom: 20px;
+}
+
+.destination-container {
+    background-color: rgba(96,96,96,0.5);
+    width: 375px;
+    padding: 5px;
+    margin: 5px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+.destination-container img {
+    width: 100%;
+    height: 300px;
+    /* border-radius: top-left top-right bottom-right bottom-left */
+    border-radius: 20px 20px 0px 0px;
+}
+
+.destination-card {
+    background-color: white;
+    border-radius: 0px 0px 20px 20px;
+    padding: 8px;
+}
+
+.destination-card p {
+    color: gray;
+    font-weight: bold;
+}
+
+.destination-card button {
+    width: 75px;
+}
+
+.no-results {
+    display: flex;
+    align-items: center;
+}
+
+.no-results img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.no-results p {
+    color: red;
 }
