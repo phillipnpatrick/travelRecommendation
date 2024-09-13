@@ -45,7 +45,7 @@ function getDestinations(destinationType) {
     let url = window.location.href;
 
     if (url.indexOf("github.io") > 0){
-        if (url.lastIndexOf("/") === url.length - 1) {
+        if (url.lastIndexOf("/") != url.length - 1) {
             console.log(`url.lastIndexOf("/") = ` + url.lastIndexOf("/"));
             console.log("url.length = " + url.length);
             console.log("Original url: " + url);
@@ -118,6 +118,8 @@ function getDestinationHTML(destinations) {
     let html = "";
 
     html = JSON.stringify(destinations);
+
+    console.log(html);
     
     // destinations.forEach((destination) => {
     //     html += `<div class="w3-container destination-container">`;
