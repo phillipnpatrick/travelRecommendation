@@ -46,6 +46,8 @@ function getDestinations(destinationType) {
 
     if (url.indexOf("github.io") > 0){
         if (url.lastIndexOf("/") === url.length - 1) {
+            console.log(`url.lastIndexOf("/") = ` + url.lastIndexOf("/"));
+            console.log("url.length = " + url.length);
             console.log("Original url: " + url);
             url += "/";
             console.log("Add slash to end of url: " + url);
@@ -114,19 +116,21 @@ function displayResults(keywords) {
 
 function getDestinationHTML(destinations) {
     let html = "";
+
+    html = JSON.stringify(destinations);
     
-    destinations.forEach((destination) => {
-        html += `<div class="w3-container destination-container">`;
-        html += `<div class="destination-photo">`;
-        html += `<img src="${destination.imageUrl}" alt="Destination Photo"></img>`;
-        html += `</div>`;
-        html += `<div class="destination-card">`;
-        html += `<span><strong>${destination.name}</strong></span>`;
-        html += `<p>${destination.description}</p>`;
-        html += `<button onclick="alert('Enjoy your trip to ${destination.name}!');">Visit</button>`;
-        html += `</div>`;
-        html += `</div>`;
-    });
+    // destinations.forEach((destination) => {
+    //     html += `<div class="w3-container destination-container">`;
+    //     html += `<div class="destination-photo">`;
+    //     html += `<img src="${destination.imageUrl}" alt="Destination Photo"></img>`;
+    //     html += `</div>`;
+    //     html += `<div class="destination-card">`;
+    //     html += `<span><strong>${destination.name}</strong></span>`;
+    //     html += `<p>${destination.description}</p>`;
+    //     html += `<button onclick="alert('Enjoy your trip to ${destination.name}!');">Visit</button>`;
+    //     html += `</div>`;
+    //     html += `</div>`;
+    // });
 
     return html;
 }
