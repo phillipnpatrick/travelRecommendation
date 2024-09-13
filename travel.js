@@ -45,9 +45,9 @@ function getDestinations(destinationType) {
     let url = window.location.href;
 
     if (url.indexOf("github.io") > 0){
-        if (url.lastIndexOf("/") != url.length - 1) {
-            console.log(`url.lastIndexOf("/") = ` + url.lastIndexOf("/"));
-            console.log("url.length = " + url.length);
+        console.log(`url.lastIndexOf("/") = ` + url.lastIndexOf("/"));
+        console.log("url.length = " + url.length);
+        if (url.lastIndexOf("/") != (url.length - 1)) {
             console.log("Original url: " + url);
             url += "/";
             console.log("Add slash to end of url: " + url);
@@ -55,8 +55,13 @@ function getDestinations(destinationType) {
         url += "travel_rec_api.json";
         console.log("Fetching JSON data from " + url);
         fetch(url)
-            .then(response => response.json())
+            .then(response => { 
+                if (!response.ok) {
+                    throw new Error("Network response was not ok ... " + response);
+                }
+            })
             .then(data => {
+                console.log(data);
                 return getJSONarray(data, destinationType);
             })
             .catch(error => {
