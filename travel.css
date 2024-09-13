@@ -440,3 +440,7 @@ button {
 .no-results p {
     color: red;
 }
+
+.current-time {
+    color: green;
+}

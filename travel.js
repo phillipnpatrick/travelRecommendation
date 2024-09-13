@@ -55,8 +55,6 @@ function getDestinations(destinationType) {
     // url = "https://phillipnpatrick.github.io/travelRecommendation/";
 
     if (url.indexOf("github.io") > 0){
-        console.log(`url.lastIndexOf("/") = ` + url.lastIndexOf("/"));
-        console.log("url.length = " + url.length);
         if (url.lastIndexOf("/") != (url.length - 1)) {
             console.log("Original url: " + url);
             url += "/";
@@ -66,7 +64,6 @@ function getDestinations(destinationType) {
         console.log("Fetching JSON data from " + url);
         fetch(url)
             .then(response => { 
-                console.log(response);
                 if (!response.ok) {
                     throw new Error("Network response was not ok ... " + response);
                 }
@@ -74,7 +71,6 @@ function getDestinations(destinationType) {
             })
             .then(data => {
                 console.log("Retrieved data...");
-                console.log(data);
                 destinations =  getJSONarray(data, destinationType);
 
                 displayResults(destinationType, destinations);
@@ -132,14 +128,17 @@ function displayResults(destinationType, destinations) {
 
 function getDestinationHTML(destinations) {
     let html = "";
+    let time;
+    
     
     destinations.forEach((destination) => {
+        time = getCurrentTime(destination.name);
         html += `<div class="w3-container destination-container">`;
         html += `<div class="destination-photo">`;
         html += `<img src="${destination.imageUrl}" alt="Destination Photo"></img>`;
         html += `</div>`;
         html += `<div class="destination-card">`;
-        html += `<span><strong>${destination.name}</strong></span>`;
+        html += `<span><strong>${destination.name}</strong> <span class="current-time">${time}<span></span>`;
         html += `<p>${destination.description}</p>`;
         html += `<button onclick="alert('Enjoy your trip to ${destination.name}!');">Visit</button>`;
         html += `</div>`;
@@ -147,6 +146,28 @@ function getDestinationHTML(destinations) {
     });
 
     return html;
+}
+
+function getCurrentTime(location) {
+    const options = { timeZone: 'America/New_York', hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    const newYorkTime = new Date().toLocaleTimeString('en-US', options);
+    console.log("Current time in New York:", newYorkTime);
+
+    if (location === "Sydney, Australia") {
+        return new Date().toLocaleTimeString('en-US', { timeZone: 'Australia/Sydney', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+    } else if (location === "Melbourne, Australia") {
+        return new Date().toLocaleTimeString('en-US', { timeZone: 'Australia/Melbourne', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+    } else if (location === "Bora Bora, French Polynesia") {
+        return new Date().toLocaleTimeString('en-US', { timeZone: 'Pacific/Tahiti', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+    } else if (location === "Copacabana Beach, Brazil" || location === "São Paulo, Brazil" || location === "Rio de Janeiro, Brazil") {
+        return new Date().toLocaleTimeString('en-US', { timeZone: 'America/Sao_Paulo', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+    } else if (location === "Taj Mahal, India") {
+        return new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+    } else if (location === "Angkor Wat, Cambodia") {
+        return new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Phnom_Penh', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+    } else if (location === "Tokyo, Japan" || location === "Kyoto, Japan") {
+        return new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Tokyo', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+    }
 }
 
 function clearSearch() {
