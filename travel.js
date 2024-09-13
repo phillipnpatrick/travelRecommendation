@@ -1,3 +1,81 @@
+const INDEX_COUNTRIES = "countries";
+const INDEX_TEMPLES  = "temples";
+const INDEX_BEACHES  = "beaches";
+
+function search() {
+    const searchBar = document.getElementById("keywords");
+    alert("searchBar.value = " + searchBar.value);
+    const keywords = searchBar.value.toLowerCase();
+    alert("keywords = " + keywords);
+
+    destinationType = getKeyword(keywords);
+
+    displayResults(destinationType);
+}
+
+function getKeyword(searchInput) {
+    const searchKeys = ["beach", "country", "countries", "temple"];
+    let destinationType = "";
+
+    searchKeys.forEach(keyword => {
+        if (searchInput.indexOf(keyword) >= 0){
+            if (searchInput.indexOf("country") >= 0) {
+                destinationType = INDEX_COUNTRIES;
+            } else if (searchInput.indexOf("temple") >= 0) {
+                destinationType = INDEX_TEMPLES;
+            } else if (searchInput.indexOf("beach") >= 0) {
+                destinationType = INDEX_BEACHES;
+            }
+        }
+    });
+
+    return destinationType;
+}
+
+function getDestinations(destinationType) {
+    let url = window.location.href;
+
+    if (url.indexOf("github.io") > 0){
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (destinationType === INDEX_BEACHES) {
+                    return data.beaches;
+                } else if (destinationType === INDEX_COUNTRIES) {
+                    return data.countries;
+                } else if (destinationType === INDEX_TEMPLES) {
+                    return data.temples;
+                }
+            })
+            .catch(error => {
+                console.error("Error: ", error);
+            });
+    } else {
+        if (destinationType === INDEX_BEACHES) {
+            return beaches[0].beaches;
+        } else if (destinationType === INDEX_COUNTRIES) {
+            return countries[0].countries;
+        } else if (destinationType === INDEX_TEMPLES) {
+            return temples[0].countries;
+        }
+    }
+
+    return null;
+}
+
+function displayResults(destinationType) {
+    const destinations = getDestinations(destinationType);
+    document.getElementById("divHome").style.display = "none";
+
+    const results = document.getElementById("divResults");
+    results.innerText = JSON.stringify(destinations);
+}
+
+function clearSearch() {
+    const searchBar = document.getElementById("keywords");
+    searchBar.value = "";
+}
+
 function displayHome() {
     showSearchBox(true);
 

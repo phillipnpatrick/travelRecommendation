@@ -13,26 +13,26 @@
                 <nav>
                     <div class="logo">
                         <ul class="nav-ul">
-                            <li class="nav-li"><button class="nav-btn-logo" onclick="displayHome()"><img src="./pride-flag.png" alt="image_description" width="30" height="20"></a></li>
-                            <li class="nav-li"><button class="nav-btn-name" onclick="displayHome()">Travel Pridefully</button></li>
+                            <li class="nav-li"><button class="nav-btn-logo" onclick="displayHome()" title="logo"><img src="./pride-flag.png" alt="image_description" width="30" height="20"></a></li>
+                            <li class="nav-li"><button class="nav-btn-name" onclick="displayHome()" title="companyName">Travel Pridefully</button></li>
                         </ul>
                     </div>
                     <div class="menu">
                         <ul class="nav-ul">
-                            <li class="nav-li"><button class="nav-btn" id="btnHome" onclick="displayHome()">Home</button></li>
-                            <li class="nav-li"><button class="nav-btn" id="btnAbout" onclick="displayAboutUs()">About Us</button></li>
-                            <li class="nav-li"><button class="nav-btn" id="btnContact" onclick="displayContactUs()">Contact Us</button></li>
+                            <li class="nav-li"><button class="nav-btn" id="btnHome" onclick="displayHome()" title="home">Home</button></li>
+                            <li class="nav-li"><button class="nav-btn" id="btnAbout" onclick="displayAboutUs()" title="aboutUs">About Us</button></li>
+                            <li class="nav-li"><button class="nav-btn" id="btnContact" onclick="displayContactUs()" title="contactUs">Contact Us</button></li>
                         </ul>
                     </div>
                     <div id="searchBoxContainer" class="search-container">
                         <div id="searchBox" class="search">
                             <div class="search-input">
-                                <input type="text" id="conditionInput" placeholder="Enter a destination or keyword">
+                                <input type="text" id="keywords" placeholder="Enter a destination or keyword" title="searchInput">
                             </div>
                             <div class="search-buttons">
-                                <button type="submit" class="button_search_icon"><i class="fa fa-search"></i></button>
-                                <button id='btnSearch' class="search_button">Search</button>
-                                <button id='btnClear' class="clear_button">Clear</button>
+                                <button type="button" class="button_search_icon" onclick="search()" title="searchIcon"><i class="fa fa-search"></i></button>
+                                <button type="button" id="btnSearch" class="search_button" onclick="search()" title="search">Search</button>
+                                <button type="button" id="btnClear" class="clear_button" onclick="clearSearch()" title="clear">Clear</button>
                             </div>
                         </div>
                     </div>
@@ -52,6 +52,9 @@
                             <h2 class="h2-home multicolor-text">Show Your Pride</h2>
                             <p class="p-content">Explore unfamiliar territories, embracing diverse cultures and landscapes, while pursuing the desired destination that captivates the heart and ignites a sense of wonder.</p>
                             <button class="btn-book" id="btnBook" onclick="alert('Thank you for your interest.');">BOOK NOW</button>
+                        </div>
+                        <div id="divResults">
+                            
                         </div>
                         <div id="divAbout" style="display:none">
                             <h1>ABOUT US</h1>

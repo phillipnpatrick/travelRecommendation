@@ -6,12 +6,12 @@
         "cities": [
           {
             "name": "Sydney, Australia",
-            "imageUrl": "enter_your_image_for_sydney.jpg",
+            "imageUrl": "https://media.istockphoto.com/id/1066998508/photo/sydney-harbour-bridge.jpg?s=612x612&w=0&k=20&c=kYUUMFq6QD9p5dT7BZ2E4OoMMw6lIJCr1DMmZlihuX4=",
             "description": "A vibrant city known for its iconic landmarks like the Sydney Opera House and Sydney Harbour Bridge."
           },
           {
             "name": "Melbourne, Australia",
-            "imageUrl": "enter_your_image_for_melbourne.jpg",
+            "imageUrl": "https://media.istockphoto.com/id/493621192/photo/melbourne-at-dusk.jpg?s=612x612&w=0&k=20&c=ogjQ1VOGyRdWvLfQLfMADI4bKdKC_nv2T2jSRtM8CCA=",
             "description": "A cultural hub famous for its art, food, and diverse neighborhoods."
           }
         ]
@@ -22,12 +22,12 @@
         "cities": [
           {
             "name": "Tokyo, Japan",
-            "imageUrl": "enter_your_image_for_tokyo.jpg",
+            "imageUrl": "https://t3.ftcdn.net/jpg/00/83/45/28/360_F_83452854_Epa5N806VaHrsnr5oBhUYVSEIqWqJGfO.jpg",
             "description": "A bustling metropolis blending tradition and modernity, famous for its cherry blossoms and rich culture."
           },
           {
             "name": "Kyoto, Japan",
-            "imageUrl": "enter_your_image_for_kyoto.jpg",
+            "imageUrl": "https://media.istockphoto.com/id/497450573/photo/kyoto-japan-skyline.jpg?s=612x612&w=0&k=20&c=fi3NYBbLKM21jzETrzPZHuP93rlRe8Bbp3cTnk2kuP0=",
             "description": "Known for its historic temples, gardens, and traditional tea houses."
           }
         ]
@@ -38,12 +38,12 @@
         "cities": [
           {
             "name": "Rio de Janeiro, Brazil",
-            "imageUrl": "enter_your_image_for_rio.jpg",
+            "imageUrl": "https://media.gettyimages.com/id/495595639/photo/corcovado-rio-de-janeiro-brazil.jpg?s=612x612&w=0&k=20&c=aExwFkWeHAIdWaVs2jLXFhCma4SAid0uKgFhG_iPENA=",
             "description": "A lively city known for its stunning beaches, vibrant carnival celebrations, and iconic landmarks."
           },
           {
             "name": "São Paulo, Brazil",
-            "imageUrl": "enter_your_image_for_sao-paulo.jpg",
+            "imageUrl": "https://www.thoughtco.com/thmb/pGY6irzfW7RWfFz4gO6YQDC3wGE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1032284034-d2043c99142942ba9f808598305a0c67.jpg",
             "description": "The financial hub with diverse culture, arts, and a vibrant nightlife."
           }
         ]
@@ -53,13 +53,13 @@
       {
         "id": 1,
         "name": "Angkor Wat, Cambodia",
-        "imageUrl": "enter_your_image_for_angkor-wat.jpg",
+        "imageUrl": "https://theworldtravelguy.com/wp-content/uploads/2019/06/DSCF6552-2n.jpg",
         "description": "A UNESCO World Heritage site and the largest religious monument in the world."
       },
       {
         "id": 2,
         "name": "Taj Mahal, India",
-        "imageUrl": "enter_your_image_for_taj-mahal.jpg",
+        "imageUrl": "https://media.istockphoto.com/id/159371791/photo/taj-mahal-india.jpg?s=612x612&w=0&k=20&c=M5j5WON-sb5IbeFxE8wI3CRhF1lYO2QeFwGbIMYg6fc=",
         "description": "An iconic symbol of love and a masterpiece of Mughal architecture."
       }
     ],
@@ -67,13 +67,13 @@
       {
         "id": 1,
         "name": "Bora Bora, French Polynesia",
-        "imageUrl": "enter_your_image_for_bora-bora.jpg",
+        "imageUrl": "https://lesdeuxpiedsdehors.com/wp-content/uploads/2019/03/ou-randonner-a-bora-bora.jpg",
         "description": "An island known for its stunning turquoise waters and luxurious overwater bungalows."
       },
       {
         "id": 2,
         "name": "Copacabana Beach, Brazil",
-        "imageUrl": "enter_your_image_for_copacabana.jpg",
+        "imageUrl": "https://lp-cms-production.imgix.net/2019-06/GettyImages-547005343_super.jpg?w=1920&h=640&fit=crop&crop=faces,edges&auto=format&q=75",
         "description": "A famous beach in Rio de Janeiro, Brazil, with a vibrant atmosphere and scenic views."
       }
     ]
