@@ -70,6 +70,8 @@ function getDestinations(destinationType) {
 }
 
 function getJSONarray(data, destinationType) {
+    console.log("getJSONarray: destinationType = " + destinationType);
+    console.log(data);
     if (destinationType === INDEX_BEACHES) {
         return data.beaches;
     } else if (destinationType === INDEX_COUNTRIES) {

@@ -146,6 +146,7 @@ nav {
     padding: 5px;
     border-radius: 20px;
     outline: none;
+    background-color: transparent;
 }
 
 .search-buttons {
