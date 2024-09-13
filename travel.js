@@ -44,6 +44,8 @@ function getKeyword(searchInput) {
 function getDestinations(destinationType) {
     let url = window.location.href;
 
+    debugger;
+
     if (url.indexOf("github.io") > 0){
         console.log(`url.lastIndexOf("/") = ` + url.lastIndexOf("/"));
         console.log("url.length = " + url.length);
